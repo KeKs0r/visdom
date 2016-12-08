@@ -1,4 +1,8 @@
-.route--active {
+.activeRoute {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.drawerItem button {
+  -webkit-appearance: 'none'
 }
