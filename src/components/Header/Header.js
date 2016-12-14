@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from "react";
-import {AppBar, Drawer, Menu, MenuItem, Divider, ListItem} from "material-ui";
-import LetterAvatar from "components/UI";
+import {AppBar, Drawer, Menu, MenuItem, Divider, ListItem, Subheader} from "material-ui";
+import {MenuLetterAvatar} from "components/UI";
 import {NavigationClose, ActionPowerSettingsNew} from "material-ui/svg-icons";
 import routingContainer from "containers/RoutingContainer";
 
@@ -22,7 +22,7 @@ export class AppHeader extends Component {
   navigate(e, route) {
     const { push } = this.props;
     this.toggleDrawer(e);
-    push(route);
+    push(route)
   }
 
   toggleDrawer(e) {
@@ -43,7 +43,7 @@ export class AppHeader extends Component {
       <AppBar
         title="Visdom"
         onLeftIconButtonTouchTap={this.toggleDrawer}
-        onTitleTouchTap={(e) => push('/dashboard')}
+        onTitleTouchTap={(e) => push('/')}
         titleStyle={{ cursor: 'pointer' }}
       >
         <Drawer
@@ -51,14 +51,17 @@ export class AppHeader extends Component {
           onToggleDrawer={this.toggleDrawer}
           docked={false}>
           <Menu onChange={this.navigate}>
-            <ListItem leftIcon={<LetterAvatar name={"John Doe"} key="avatar"/>}
+            <ListItem leftIcon={<MenuLetterAvatar name={"John Doe"} key="avatar"/>}
                       primaryText={"John Doe"} secondaryText="Logged in" disabled/>
-            <onLeftIconButtonTouchTapMenuItem primaryText="Logout" key="logout"
+            <MenuItem primaryText="Logout" key="logout"
                       leftIcon={<ActionPowerSettingsNew />}
                       />
             <MenuItem onTouchTap={this.toggleDrawer} leftIcon={<NavigationClose />} key="close">Close</MenuItem>
             <Divider />
-            <MenuItem primaryText="Home" value="/dashboard" className="drawerItem" key="dashboard"/>
+            <MenuItem primaryText="Home" value="/" className="drawerItem" key="dashboard"/>
+            <Divider />
+            <Subheader>My Classes</Subheader>
+            <MenuItem primaryText="Product Realization" value="/class/II2300" className="drawerItem"/>
           </Menu>
         </Drawer>
       </AppBar>

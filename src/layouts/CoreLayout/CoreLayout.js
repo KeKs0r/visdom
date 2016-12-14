@@ -4,10 +4,10 @@ import classes from "./CoreLayout.scss";
 
 
 export const CoreLayout = (props) => {
-  const { children } = props;
+  const { children, router } = props;
   return (
     <div>
-      <Header />
+      <Header push={router.push}/>
       <div className={classes.mainContainer}>
         {children}
       </div>

@@ -1,17 +1,21 @@
 import React from 'react'
-import './HomeView.scss'
-import VoteIcon from 'components/Topic/VoteIcon';
-import TopicCard from 'components/Topic/TopicCard';
-import ResourceCard from 'components/Resource/ResourceCard';
-import {Grid, Row, Col} from 'react-flexbox-grid';
+import { Card, CardText, CardMedia } from 'material-ui';
+import Logo from 'images/visdom_logo.png';
+
+
+const cardStyle = {
+  width: '50%',
+  left: '25%',
+  position:'absolute',
+
+}
 
 export const HomeView = () => (
-  <Grid fluid>
-    <Row>
-      <Col xs={12} md={6}><TopicCard/></Col>
-      <Col xs={12} md={6}><ResourceCard/></Col>
-    </Row>
-  </Grid>
+  <Card style={cardStyle}>
+    <CardText>
+      <CardMedia><img src={Logo} /></CardMedia>
+    </CardText>
+  </Card>
 )
 
-export default HomeView
+export default HomeView;

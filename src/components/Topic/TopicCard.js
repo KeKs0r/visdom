@@ -2,10 +2,17 @@ import React from "react";
 import {Card, CardHeader, CardText, List, ListItem, Avatar, Subheader, Divider} from "material-ui";
 import NPVIcon from "images/dollar-stats-icon.png";
 import { ActionList, EditorPieChart, ImageSlideshow, AvVideocam} from "material-ui/svg-icons";
-import {blue500, orange500, red500, green500} from "material-ui/styles/colors";
+import {blue500, orange500, red500, green500, blueGrey300, cyan100} from "material-ui/styles/colors";
 import VoteIcon from './VoteIcon';
 
 export default function TopicCard(props) {
+  const selected = {};
+  const navigate = () => {
+    props.router.push('/topic/npv/resource/3');
+  };
+  if(props.router.params.resource) {
+    selected.backgroundColor = cyan100;
+  }
   return (
     <Card style={{margin:8}}>
       <CardHeader
@@ -28,6 +35,8 @@ export default function TopicCard(props) {
             rightIconButton={<VoteIcon count={1}/>}
             primaryText="Overview of Net Present Value"
             secondaryText="Video"
+            onTouchTap={navigate}
+            style={selected}
           />
         </List>
         <List>

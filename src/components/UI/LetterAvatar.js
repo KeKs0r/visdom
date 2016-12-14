@@ -6,14 +6,6 @@ import {head, size, keys, map} from "lodash";
 const Colors = require("material-ui/styles/colors");
 const Letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-//position: absolute; top: 0px; margin: 12px; left: 4px;
-const menuItemStyle = {
-  position: 'absolute',
-  top: 12,
-  margin: 12,
-  left: 4
-}
-
 const getColor = (name) => {
   const mappedNumbers = map(name, (l) => Letters.indexOf(l));
   const joined = mappedNumbers.join('');
@@ -23,14 +15,13 @@ const getColor = (name) => {
   return indexColors[index];
 };
 
-export const LetterAvatar = ({name}) => {
+export const LetterAvatar = ({name, ...props}) => {
   const letter = head(name);
   const color = getColor(name);
   return (
     <Avatar
-      size={24}
-      style={menuItemStyle}
-      backgroundColor={color}>
+      backgroundColor={color}
+      {...props}>
       {letter}
     </Avatar>
   );

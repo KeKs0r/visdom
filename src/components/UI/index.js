@@ -1,3 +1,2 @@
-import LetterAvatar from './LetterAvatar'
-
-export default LetterAvatar;
+export LetterAvatar from './LetterAvatar';
+export MenuLetterAvatar from './MenuLetterAvatar';
